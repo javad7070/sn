@@ -96,15 +96,13 @@ function create_config( )
     moderation = {data = './data/moderation.json'},
     info_text = [[》SeniorBot v6.0
 An advanced administration bot based on https://valtman.name/telegram-cli
-》https://github.com/javad7070/senior 
+》https://github.com/javad7070/sn 
 》Admins :
-》@Cpp_cs ➣ Founder & Developer《
-》Special thanks to :
-》Senior Team Members
+》@Cpp_cs 
 》Our channel :
 》@SeniorTm《
 》Our website :
-》http://seniorbot.ml/
+》https://seniorbot.ml/
 ]],
   }
 	serialize_to_file(config, './data/config.lua')
