@@ -1166,11 +1166,11 @@ end
   if is_sudo(msg) then
 	if ((matches[1]:lower() == "sendfile" and not Clang) or (matches[1] == "ارسال فایل" and Clang)) and matches[2] and matches[3] then
 		local send_file = "./"..matches[2].."/"..matches[3]
-		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, send_file, "", dl_cb, nil)
+		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, send_file, msg_caption, dl_cb, nil)
 	end
 	if ((matches[1]:lower() == "sendplug" and not Clang) or (matches[1] == "ارسال پلاگین" and Clang)) and matches[2] then
 	    local plug = "./plugins/"..matches[2]..".lua"
-		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, plug, "", dl_cb, nil)
+		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, plug, msg_caption, dl_cb, nil)
     end
   end
 
@@ -1231,8 +1231,8 @@ return chat_list(msg)
 	   tdcli.sendMessage(matches[2], 0, 1, "Group has been removed by admin command", 1, 'html')
     return '_Group_ *'..matches[2]..'* _removed_'
 		end
-if ((matches[1] == 'beyond' and not Clang) or (matches[1] == "بیوند" and Clang)) then
-return tdcli.sendMessage(msg.to.id, msg.id, 1, _config.info_text, 1, 'html')
+if ((matches[1] == 'senior' and not Clang) or (matches[1] == "سنیور" and Clang)) then
+return tdcli.sendMessage(msg.to.id, msg.id, 1, _bot.info_text, 1, 'html')
     end
 if ((matches[1] == 'adminlist' and not Clang) or (matches[1] == "لیست ادمین" and Clang)) and is_admin(msg) then
 return adminlist(msg)
@@ -1265,7 +1265,7 @@ if matches[1] == "helptools" and not Clang and is_mod(msg) then
 if not lang then
 text = [[
 
-_Sudoer And Admins Beyond Bot Help :_
+_Sudoer And Admins Senior Bot Help :_
 
 *!visudo* `[username|id|reply]`
 _Add Sudo_
@@ -1372,12 +1372,12 @@ _You can use_ *[!/#]* _at the beginning of commands._
  
 *This means only the sudoers and its bot admins can use mentioned commands.*
 
-*Good luck ;)*]]..""
+*Good luck ;)*]]..msg_caption
 tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
 else
 
 text = [[
-_راهنمای ادمین و سودو های ربات بیوند:_
+_راهنمای ادمین و سودو های ربات سنیور:_
 
 *!visudo* `[username|id|reply]`
 _اضافه کردن سودو_
@@ -1484,7 +1484,7 @@ _این راهنما فقط برای سودو ها/ادمین های ربات م
 
 `این به این معناست که فقط سودو ها/ادمین های ربات میتوانند از دستورات بالا استفاده کنند!`
 
-*موفق باشید ;)*]]..""
+*موفق باشید ;)*]]..msg_caption
 tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
 end
 
@@ -1493,7 +1493,7 @@ if matches[1] == "راهنمای ابزار" and Clang and is_mod(msg) then
 if not lang then
 text = [[
 
-_Sudoer And Admins Beyond Bot Help :_
+_Sudoer And Admins Senior Bot Help :_
 
 *سودو* `[username|id|reply]`
 _Add Sudo_
@@ -1603,7 +1603,7 @@ tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
 else
 
 text = [[
-_راهنمای ادمین و سودو های ربات بیوند:_
+_راهنمای ادمین و سودو های ربات سنیور:_
 
 *سودو* `[username|id|reply]`
 _اضافه کردن سودو_
@@ -1733,7 +1733,7 @@ patterns = {
 "^[!/#](admindem) (.*)$",
 "^[!/#](leave)$",
 "^[!/#](autoleave) (.*)$", 
-"^[!/#](beyond)$",
+"^[!/#](senior)$",
 "^[!/#](creategroup) (.*)$",
 "^[!/#](createsuper) (.*)$",
 "^[!/#](tosuper)$",
@@ -1803,7 +1803,7 @@ patterns = {
     "^(ارسال) +(.*) (-%d+)$",
 	"^(افزودن) (-%d+)$",
 	"^(پاک کردن حافظه)$",
-	"^(بیوند)$",
+	"^(سنیور)$",
 }, 
 run = run, pre_process = pre_process
 }
