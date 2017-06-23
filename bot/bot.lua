@@ -94,13 +94,11 @@ function create_config( )
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[》SeniorBot v6.0
-An advanced administration bot based on https://valtman.name/telegram-cli
-》https://github.com/javad7070/sn 
-》Admins:
+    info_text = [[》SeniorBot v6.1
+》Admin:
 》@Cpp_cs 
 》Our channel:
-》@SeniorTm《
+》@SeniorTm
 》Our website:
 》https://seniorbot.ml/
 ]],
